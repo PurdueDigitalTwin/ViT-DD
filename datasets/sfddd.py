@@ -1,4 +1,5 @@
 import csv
+import os
 
 from timm.data.parsers.parser import Parser
 from pathlib import Path
@@ -62,7 +63,7 @@ class SFDDDMTLParser(SFDDDParser):
         self.face_images = []
         for path in self.samples:
             path = str(path)
-            img_id = path.split('/')[-1]
+            img_id = path.split(os.sep)[-1]
             emo_label = emo_label_dict[img_id]
             self.emo_labels.append(emo_label)
             if emo_label == -1:

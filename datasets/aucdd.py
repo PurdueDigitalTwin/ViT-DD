@@ -7,7 +7,6 @@ from timm.data.parsers.parser import Parser
 from pathlib import Path
 from PIL import Image
 
-
 class AUCDDParser(Parser):
     def __init__(self, root, img_list):
         super(AUCDDParser, self).__init__()
@@ -63,7 +62,7 @@ class AUCDDMTLParser(AUCDDParser):
         self.face_images = []
         for path in self.samples:
             path = str(path)
-            split, cls, image_name = path.split('/')[-3:]
+            split, cls, image_name = path.split(os.sep)[-3:]
             img_id = split + '/' + cls + '/' + image_name
             emo_label = emo_label_dict[img_id]
             self.emo_labels.append(emo_label)

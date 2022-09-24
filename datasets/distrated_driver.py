@@ -36,7 +36,7 @@ class DistractedDriverLDM(LightningDataModule):
         self.save_hyperparameters()
         self.data_path = Path(self.hparams.data_root) / self.hparams.dataset
         if self.hparams.dataset == "AUCDD":
-            self.data_path = self.data_path / "v2_cam1_cam2_split_by_driver" / "cam1"
+            self.data_path = self.data_path / "v2" / "cam1"
         self.annotation_path = Path(self.hparams.annotation_path) / self.hparams.dataset
         self.parser_class = eval(f"{self.hparams.dataset}Parser")
         self.train_transforms = self.build_transform(is_train=True)
@@ -59,7 +59,7 @@ class DistractedDriverLDM(LightningDataModule):
                 ]
             else:
                 primary_tfl = [
-                    RandomResizedCropAndInterpolation(img_size, scale=scale, interpolation=interpolation),
+                    RandomResizedCropAndInterpolation(img_size, scale=scale, interpolation='bicubic'),
                     transforms.RandomHorizontalFlip()
                 ]
             secondary_tfl = []

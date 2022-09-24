@@ -307,7 +307,7 @@ class ViTDDLM(LightningModule):
 def cli_main():
     cli = LightningCLI(seed_everything_default=42,
                        trainer_defaults=dict(accelerator='gpu', devices=1),
-                       save_config_callback=True)
+                       save_config_overwrite=True)
 
 
 if __name__ == "__main__":

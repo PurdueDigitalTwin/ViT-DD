@@ -1,0 +1,102 @@
+# pytorch_lightning==1.7.7
+seed_everything: 42
+trainer:
+  logger:
+    class_path: pytorch_lightning.loggers.TensorBoardLogger
+    init_args:
+      save_dir: ./runs
+      name: vitdd/aucdd
+      version: 0
+      default_hp_metric: false
+  enable_checkpointing: true
+  callbacks: null
+  default_root_dir: null
+  gradient_clip_val: null
+  gradient_clip_algorithm: null
+  num_nodes: 1
+  num_processes: null
+  devices: 1
+  gpus: null
+  auto_select_gpus: false
+  tpu_cores: null
+  ipus: null
+  enable_progress_bar: true
+  overfit_batches: 0.0
+  track_grad_norm: -1
+  check_val_every_n_epoch: 1
+  fast_dev_run: false
+  accumulate_grad_batches: null
+  max_epochs: 20
+  min_epochs: null
+  max_steps: -1
+  min_steps: null
+  max_time: null
+  limit_train_batches: null
+  limit_val_batches: null
+  limit_test_batches: null
+  limit_predict_batches: null
+  val_check_interval: null
+  log_every_n_steps: 50
+  accelerator: gpu
+  strategy: null
+  sync_batchnorm: false
+  precision: 32
+  enable_model_summary: true
+  weights_save_path: null
+  num_sanity_val_steps: 2
+  resume_from_checkpoint: null
+  profiler: null
+  benchmark: null
+  deterministic: null
+  reload_dataloaders_every_n_epochs: 0
+  auto_lr_find: false
+  replace_sampler_ddp: true
+  detect_anomaly: false
+  auto_scale_batch_size: false
+  plugins: null
+  amp_backend: native
+  amp_level: null
+  move_metrics_to_cpu: false
+  multiple_trainloader_mode: max_size_cycle
+ckpt_path: null
+data:
+  class_path: datasets.MTLDistractedDriverLDM
+  init_args:
+    batch_size: &bs 128
+    num_workers: 4
+    dataset: AUCDD
+    train_list: train_list.csv
+    val_list: test_list.csv
+    input_size_1: 224
+    input_size_2: 32
+    color_jitter: 0.3
+    three_augment: false
+    src: false
+model:
+  class_path: __main__.ViTDDLM
+  init_args:
+    batch_size: *bs
+    num_classes_1: 10
+    num_classes_2: 8
+    epochs: 20
+    attn_only: true
+    smoothing: 0.0
+    lambda1: 0.999
+    lambda2: 0.001
+    pretrained_ckpt_path: null
+    model: deit3_base_patch16_224
+    input_size_1: 224
+    input_size_2: 32
+    drop: 0.0
+    drop_path: 0.5
+    opt: adamw
+    weight_decay: 0.1
+    sched: cosine
+    lr: 0.0006
+    warmup_lr: 1.0e-06
+    min_lr: 0.0
+    warmup_epochs: 5
+    cooldown_epochs: 0
+
+
+
