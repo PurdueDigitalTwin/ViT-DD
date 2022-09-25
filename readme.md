@@ -7,7 +7,7 @@
 
 ## Abstract
 
-Driver distraction detection is an important computer vision problem that can play a crucial role in enhancing traffic safety and reducing traffic accidents. In this paper, a Vision Transformer (ViT) based approach for driver distraction detection is proposed. Specifically, a multi-modal Vision Transformer (ViT-DD) is developed, which exploits inductive information contained in signals of distraction detection as well as driver emotion recognition. Further, a semi-surprised learning algorithm is designed to include driver data without emotion labels into the supervised multi-task training of ViT-DD. Extensive experiments conducted on the SFDDD and AUCDD datasets demonstrate that the proposed ViT-DD outperforms the state-of-the-art approaches for driver distraction detection by 6.5% and 0.9%, respectively.
+Driver distraction detection is an important computer vision problem that can play a crucial role in enhancing traffic safety and reducing traffic accidents. In this paper, a Vision Transformer (ViT) based approach for driver distraction detection is proposed. Specifically, a multi-modal Vision Transformer (ViT-DD) is developed, which exploits inductive information contained in signals of distraction detection as well as driver emotion recognition. Further, a semi-supervised learning algorithm is designed to include driver data without emotion labels into the supervised multi-task training of ViT-DD. Extensive experiments conducted on the SFDDD and AUCDD datasets demonstrate that the proposed ViT-DD outperforms the state-of-the-art approaches for driver distraction detection by 6.5% and 0.9%, respectively.
 
 ## Results
 
