@@ -1,4 +1,5 @@
 import torch
+import timm
 
 from pytorch_lightning import LightningDataModule
 from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADERS
@@ -9,7 +10,6 @@ from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
 from datasets.sfddd import SFDDDParser, SFDDDMTLParser
 from datasets.aucdd import AUCDDParser, AUCDDMTLParser
 from torchvision.transforms import InterpolationMode
-from timm.data.transforms import RandomResizedCropAndInterpolation
 
 from pathlib import Path
 from PIL import Image
@@ -48,8 +48,6 @@ class DistractedDriverLDM(LightningDataModule):
         remove_random_resized_crop = self.hparams.src
         color_jitter = self.hparams.color_jitter
 
-        scale = (0.08, 1.0)
-
         if is_train:
             if remove_random_resized_crop:
                 primary_tfl = [
@@ -59,12 +57,13 @@ class DistractedDriverLDM(LightningDataModule):
                 ]
             else:
                 primary_tfl = [
-                    RandomResizedCropAndInterpolation(img_size, scale=scale, interpolation='bicubic'),
+                    timm.data.transforms.RandomResizedCropAndInterpolation(img_size, interpolation='bicubic'),
                     transforms.RandomHorizontalFlip()
                 ]
             secondary_tfl = []
             if self.hparams.three_augment:
-                secondary_tfl = [transforms.RandomChoice([gray_scale(p=1.0), Solarization(p=1.0), GaussianBlur(p=1.0)])]
+                secondary_tfl.append(
+                    transforms.RandomChoice([gray_scale(p=1.0), Solarization(p=1.0), GaussianBlur(p=1.0)]))
             if color_jitter is not None and not color_jitter == 0:
                 secondary_tfl.append(transforms.ColorJitter(color_jitter, color_jitter, color_jitter))
             final_tfl = [
