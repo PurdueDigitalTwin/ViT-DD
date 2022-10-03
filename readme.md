@@ -24,7 +24,7 @@ Driver distraction detection is an important computer vision problem that can pl
 The code is built with following libraries:
 
 - Python >= 3.8
-- [Pytorch](https://pytorch.org/)
+- [PyTorch](https://pytorch.org/)
 - [Lightning](https://www.pytorchlightning.ai/)
 - [timm](https://github.com/rwightman/pytorch-image-models)
 - [seaborn](https://seaborn.pydata.org/index.html)
