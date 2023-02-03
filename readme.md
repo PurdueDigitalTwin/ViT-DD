@@ -13,9 +13,9 @@ Driver distraction detection is an important computer vision problem that can pl
 
 |                      Experiments                      | Accuracy |  NLL   |                                                            Checkpoints                                                            |
 | :---------------------------------------------------: | :------: | :----: | :-------------------------------------------------------------------------------------------------------------------------------: |
-|           [AUCDD](configs/vitdd_acudd.yaml)           |  0.9359  | 0.2399 |     [link](https://purdue0-my.sharepoint.com/:u:/g/personal/ma801_purdue_edu/EbRPfyR5QWpNjrF5jbuY5y0BXfBk4FRr0mNSYLKDMqIYYw)      |
-| [SFDDD split-by-driver](configs/vitdd_sfddd_sbd.yaml) |  0.9251  | 0.3900 | [link](https://purdue0-my.sharepoint.com/:u:/g/personal/ma801_purdue_edu/EVxQRFho80VBl_WtP4XKcTUBpMdMDczu-EmlNSN-lXm86Q?e=gUelpR) |
-| [SFDDD split-by-image](configs/vitdd_sfddd_sbi.yaml)  |  0.9963  | 0.0171 | [link](https://purdue0-my.sharepoint.com/:u:/g/personal/ma801_purdue_edu/Ea8r8Nnz3B1MgIKGjnX09T4B78bgU1x2woEok_FGbsqVnQ?e=5qo338) |
+|           [AUCDD](configs/vitdd_acudd.yaml)           |  0.9359  | 0.2399 |     [link](https://purdue0-my.sharepoint.com/:u:/g/personal/yunsheng_purdue_edu/EbRPfyR5QWpNjrF5jbuY5y0BXfBk4FRr0mNSYLKDMqIYYw?e=FhP7fB)      |
+| [SFDDD split-by-driver](configs/vitdd_sfddd_sbd.yaml) |  0.9251  | 0.3900 | [link](https://purdue0-my.sharepoint.com/:u:/g/personal/yunsheng_purdue_edu/EVxQRFho80VBl_WtP4XKcTUBpMdMDczu-EmlNSN-lXm86Q?e=gNYfxD) |
+| [SFDDD split-by-image](configs/vitdd_sfddd_sbi.yaml)  |  0.9963  | 0.0171 | [link](https://purdue0-my.sharepoint.com/:u:/g/personal/yunsheng_purdue_edu/Ea8r8Nnz3B1MgIKGjnX09T4B78bgU1x2woEok_FGbsqVnQ?e=4zNQw0) |
 
 ## Usage
 
