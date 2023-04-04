@@ -7,7 +7,7 @@ from models import ViTDD
 
 from pytorch_lightning import LightningModule
 from pytorch_lightning.cli import LightningCLI
-from pytorch_lightning.utilities.types import STEP_OUTPUT, EPOCH_OUTPUT
+from pytorch_lightning.utilities.types import STEP_OUTPUT
 
 from torchmetrics import Accuracy, ConfusionMatrix
 from torch.optim import Optimizer
@@ -132,7 +132,7 @@ class VisionTransformerLM(LightningModule):
         outputs = self.forward(samples)
         self.confusion_matrix.update(outputs, targets)
 
-    def training_epoch_end(self, outputs: EPOCH_OUTPUT) -> None:
+    def training_epoch_end(self, outputs) -> None:
         opt: Optimizer = self.optimizers()
         self.log("LR", opt.param_groups[0]["lr"], on_epoch=True, sync_dist=True)
 
@@ -265,7 +265,7 @@ class ViTDDLM(LightningModule):
         self.log("Accuracy/val_emotion", self.valid_acc_2, on_step=True, on_epoch=True, sync_dist=True)
         self.log("Loss/val", loss_value, sync_dist=True)
 
-    def training_epoch_end(self, outputs: EPOCH_OUTPUT) -> None:
+    def training_epoch_end(self, outputs) -> None:
         opt: Optimizer = self.optimizers()
         self.log("LR", opt.param_groups[0]["lr"], on_epoch=True)
 
@@ -307,7 +307,7 @@ class ViTDDLM(LightningModule):
 def cli_main():
     cli = LightningCLI(seed_everything_default=42,
                        trainer_defaults=dict(accelerator='gpu', devices=1),
-                       save_config_overwrite=True)
+                       save_config_kwargs={'overwrite': True})
 
 
 if __name__ == "__main__":

@@ -14,15 +14,9 @@ trainer:
   gradient_clip_val: null
   gradient_clip_algorithm: null
   num_nodes: 1
-  num_processes: null
   devices: 1
-  gpus: null
-  auto_select_gpus: false
-  tpu_cores: null
-  ipus: null
   enable_progress_bar: true
   overfit_batches: 0.0
-  track_grad_norm: -1
   check_val_every_n_epoch: 1
   fast_dev_run: false
   accumulate_grad_batches: null
@@ -42,22 +36,13 @@ trainer:
   sync_batchnorm: false
   precision: 32
   enable_model_summary: true
-  weights_save_path: null
   num_sanity_val_steps: 2
-  resume_from_checkpoint: null
   profiler: null
   benchmark: null
   deterministic: null
   reload_dataloaders_every_n_epochs: 0
-  auto_lr_find: false
-  replace_sampler_ddp: true
   detect_anomaly: false
-  auto_scale_batch_size: false
   plugins: null
-  amp_backend: native
-  amp_level: null
-  move_metrics_to_cpu: false
-  multiple_trainloader_mode: max_size_cycle
 ckpt_path: null
 data:
   class_path: datasets.MTLDistractedDriverLDM
